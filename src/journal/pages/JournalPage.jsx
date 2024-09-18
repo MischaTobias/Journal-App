@@ -3,8 +3,16 @@ import { AddOutlined } from "@mui/icons-material";
 
 import { JournalLayout } from "../layout/JournalLayout";
 import { NothingSelectedView, PostView } from "../views";
+import { useDispatch } from "react-redux";
+import { startNewPost } from "../../store/journal/thunks";
 
 export const JournalPage = () => {
+  const dispatch = useDispatch();
+
+  const onAddNewPost = () => {
+    dispatch(startNewPost());
+  };
+
   return (
     <JournalLayout>
       {/* <NothingSelectedView /> */}
@@ -20,6 +28,7 @@ export const JournalPage = () => {
           right: 50,
           bottom: 50,
         }}
+        onClick={onAddNewPost}
       >
         <AddOutlined sx={{ fontSize: 30 }} />
       </IconButton>

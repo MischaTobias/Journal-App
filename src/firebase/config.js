@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp, setLogLevel } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore/lite";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -15,12 +15,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APPID,
 };
 
-console.log(firebaseConfig);
-
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
 export const firebaseAuth = getAuth(firebaseApp);
 export const firebaseDB = getFirestore(firebaseApp);
-
-//Stop showing logs to console
-setLogLevel("silent");

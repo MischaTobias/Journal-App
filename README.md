@@ -1,8 +1,6 @@
-# Heroes SPA
+# Journal App
 
-This is a a journal portal designed for users to add posts for other users to access them.
-
-- You can add images for them to display on your post.
+Stay organized and mindful with the journal app. Capture your thoughts, track your goals, and reflect on your day with ease. Whether you're writing daily entries, writing down deep thoughts, or revisiting past moments, this app makes it simple to stay connected with yourself.
 
 # Content
 
