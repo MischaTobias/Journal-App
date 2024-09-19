@@ -21,7 +21,7 @@ export const NothingSelectedView = () => {
       </Grid2>
       <Grid2 container justifyContent="center" size={12}>
         <Typography color="white" variant="h5">
-          Select or create a post
+          Select or create a note
         </Typography>
       </Grid2>
     </Grid2>

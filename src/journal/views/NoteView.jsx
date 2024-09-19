@@ -2,7 +2,7 @@ import { SaveOutlined } from "@mui/icons-material";
 import { Button, Grid2, TextField, Typography } from "@mui/material";
 import { ImageGallery } from "../components";
 
-export const PostView = () => {
+export const NoteView = () => {
   return (
     <Grid2 container direction="column">
       <Grid2
