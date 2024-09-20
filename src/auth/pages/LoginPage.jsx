@@ -19,12 +19,14 @@ import {
   startGoogleSignIn,
 } from "../../store/auth";
 
+const initialForm = {
+  email: "",
+  password: "",
+};
+
 export const LoginPage = () => {
   const dispatch = useDispatch();
-  const { email, password, onInputChange, formState } = useForm({
-    email: "",
-    password: "",
-  });
+  const { email, password, onInputChange, formState } = useForm(initialForm);
 
   const { status, errorMessage } = useSelector((state) => state.auth);
 

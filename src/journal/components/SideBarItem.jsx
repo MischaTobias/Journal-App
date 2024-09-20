@@ -14,7 +14,7 @@ export const SideBarItem = ({ id, title, body, date, imageURLs = [] }) => {
   const dispatch = useDispatch();
 
   const newTitle = useMemo(() => {
-    return title.length > 17 ? title.substring(0, 20) + "..." : title;
+    return title.length > 20 ? title.substring(0, 20) + "..." : title;
   }, [title]);
 
   const onNoteSelection = () => {
@@ -22,14 +22,14 @@ export const SideBarItem = ({ id, title, body, date, imageURLs = [] }) => {
   };
 
   return (
-    <ListItem onClick={onNoteSelection}>
+    <ListItem onClick={onNoteSelection} disablePadding>
       <ListItemButton>
         <ListItemIcon>
           <TurnedInNot />
         </ListItemIcon>
-        <Grid2 container>
-          <ListItemText primary={newTitle} />
-          <ListItemText secondary={body} />
+        <Grid2 container direction="column">
+          <ListItemText primary={newTitle} sx={{ mb: 0 }} />
+          <ListItemText secondary={body} sx={{ mt: 0 }} />
         </Grid2>
       </ListItemButton>
     </ListItem>

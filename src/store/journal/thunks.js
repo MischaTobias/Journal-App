@@ -5,6 +5,8 @@ import {
   savingNewNote,
   setActiveNote,
   setNotes,
+  setSaving,
+  updateNote,
 } from "./journalSlice";
 import { loadNotes } from "../../helpers";
 
@@ -36,5 +38,26 @@ export const startLoadingNotes = () => {
 
     const notes = await loadNotes(uid);
     dispatch(setNotes(notes));
+  };
+};
+
+export const startSaveNote = () => {
+  return async (dispatch, getState) => {
+    dispatch(setSaving());
+
+    const { uid } = getState().auth;
+    if (!uid) throw new Error("User UID not found");
+
+    const { activeNote } = getState().journal;
+
+    const updatedNote = { ...activeNote };
+    delete updatedNote.id;
+
+    const docRef = doc(firebaseDB, `${uid}/journal/notes/${activeNote.id}`);
+    await setDoc(docRef, updatedNote, { merge: true });
+
+    updatedNote.id = docRef.id;
+
+    dispatch(updateNote(updatedNote));
   };
 };

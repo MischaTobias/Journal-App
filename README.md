@@ -15,4 +15,4 @@ The site is hosted on Github Pages:
 
 # Built with
 
-This app was developed using react 18, using custom hooks, firebase, routers, redux, and other tools and technologies.
+This app was developed using react 18, using custom hooks, firebase, routers, redux, Cloudinary as the images hosting and other tools and technologies.
