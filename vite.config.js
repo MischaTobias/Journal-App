@@ -5,4 +5,24 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   plugins: [react()],
   base: "./",
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          const HugeLibraries = ["@mui"]; // modify as required based on libraries in use
+          if (
+            HugeLibraries.some((libName) =>
+              id.includes(`node_modules/${libName}`)
+            )
+          ) {
+            return id
+              .toString()
+              .split("node_modules/")[1]
+              .split("/")[0]
+              .toString();
+          }
+        },
+      },
+    },
+  },
 });
