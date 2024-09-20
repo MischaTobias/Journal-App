@@ -4,6 +4,7 @@ import {
   logoutFirebase,
   registerUserWithEmailPassword,
 } from "../../firebase/providers";
+import { clearNotesOnLogout } from "../journal/journalSlice";
 import { checkCredentials, login, logout } from "./";
 
 export const startGoogleSignIn = () => {
@@ -53,6 +54,7 @@ export const startEmailAndPasswordSignIn = ({ email, password }) => {
 export const startLogout = () => {
   return async (dispatch) => {
     await logoutFirebase();
+    dispatch(clearNotesOnLogout());
     dispatch(logout({}));
   };
 };
