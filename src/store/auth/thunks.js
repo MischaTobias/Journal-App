@@ -7,6 +7,12 @@ import {
 import { clearNotesOnLogout } from "../journal/journalSlice";
 import { checkCredentials, login, logout } from "./";
 
+export const checkingAuthentication = () => {
+  return async (dispatch) => {
+    dispatch(checkCredentials());
+  };
+};
+
 export const startGoogleSignIn = () => {
   return async (dispatch) => {
     await dispatch(checkCredentials());

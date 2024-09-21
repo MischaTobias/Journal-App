@@ -1,5 +1,5 @@
 export const uploadFile = async (file) => {
-  if (!file) throw new Error("No file selected");
+  if (!file) return null;
 
   const cloudUrl = import.meta.env.VITE_CLOUDINARY_URL;
 
@@ -21,7 +21,6 @@ export const uploadFile = async (file) => {
     const uploadResponse = await response.json();
     return uploadResponse.secure_url;
   } catch (error) {
-    console.log(error);
-    throw new Error(error.message);
+    return null;
   }
 };
